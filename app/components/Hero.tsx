@@ -66,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif-display text-[11vw] sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-default leading-[0.95] max-w-5xl break-words"
+          className="font-serif-display text-[10vw] sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-default leading-[0.95] max-w-5xl break-words"
         >
           Simon <em className="text-gradient-warm">Caillieret</em>
         </motion.h1>
