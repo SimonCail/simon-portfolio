@@ -114,13 +114,13 @@ export default function Contact() {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-[1fr_1.2fr] gap-6 sm:gap-8 max-w-4xl mx-auto items-center">
+      <div className="grid md:grid-cols-[1fr_1.2fr] gap-6 sm:gap-8 max-w-4xl mx-auto items-center w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex flex-col items-center"
+          className="relative flex flex-col items-center w-full min-w-0"
         >
           <FranceMap />
           <div className="mt-3 inline-flex items-center gap-2 text-xs font-mono text-subtle">
@@ -129,7 +129,7 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        <div className="grid gap-3">
+        <div className="grid gap-3 w-full min-w-0">
           <EmailCard />
           {links.map((l, i) => {
             const Icon = l.icon;
