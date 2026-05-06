@@ -5,7 +5,7 @@ import { I18nProvider } from "./components/I18nProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://simoncaillieret.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://simon-portfolio-ashen.vercel.app"
   ),
   title: "Simon Caillieret — Étudiant Développeur",
   description:
