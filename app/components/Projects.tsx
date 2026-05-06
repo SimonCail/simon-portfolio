@@ -164,10 +164,12 @@ function contextLabel(t: Translation, key: ContextKey): string {
 
 function ProjectCard({
   project,
-  ariaHidden = false
+  ariaHidden = false,
+  variant = "carousel"
 }: {
   project: Project;
   ariaHidden?: boolean;
+  variant?: "carousel" | "stack";
 }) {
   const { t, locale } = useI18n();
   const Icon = project.contextIcon;
@@ -190,12 +192,17 @@ function ProjectCard({
     el.style.setProperty("--my", `${e.clientY - rect.top}px`);
   };
 
+  const sizeClasses =
+    variant === "carousel"
+      ? "w-[85vw] sm:w-[420px] h-[600px] shrink-0"
+      : "w-full max-w-full";
+
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       aria-hidden={ariaHidden || undefined}
-      className="liquid-glass card-spotlight group relative flex flex-col rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-amber-glow/15 transition-shadow duration-500 w-[85vw] sm:w-[420px] h-[600px] shrink-0"
+      className={`liquid-glass card-spotlight group relative flex flex-col rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-amber-glow/15 transition-shadow duration-500 ${sizeClasses}`}
     >
       <a
         href={primaryUrl}
@@ -490,13 +497,29 @@ export default function Projects() {
           <p className="text-muted max-w-xl mx-auto mt-5 px-2">
             {t.projects.description}
           </p>
-          <p className="text-xs text-subtle mt-3 font-mono italic">
+          <p className="hidden sm:block text-xs text-subtle mt-3 font-mono italic">
             {t.projects.hint}
           </p>
         </motion.div>
       </div>
 
-      <div className="relative">
+      {/* Mobile: vertical stack — natural thumb scroll, no drag needed */}
+      <div className="sm:hidden px-4 grid gap-5">
+        {projects.map((p, i) => (
+          <motion.div
+            key={p.number}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: (i % 3) * 0.05 }}
+          >
+            <ProjectCard project={p} variant="stack" />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Desktop: infinite horizontal carousel */}
+      <div className="hidden sm:block relative">
         <div
           className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 z-10 pointer-events-none"
           style={{ background: "linear-gradient(to right, var(--bg), transparent)" }}
