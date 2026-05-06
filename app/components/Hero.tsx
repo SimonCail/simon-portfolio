@@ -66,9 +66,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif-display text-[clamp(2.25rem,8vw,6rem)] tracking-tight text-default leading-[0.95] max-w-full px-4 break-words"
+          className="font-serif-display text-[clamp(2.25rem,8vw,6rem)] tracking-tight text-default leading-[0.95] max-w-full px-6 sm:px-12 break-words"
         >
-          Simon <em className="text-gradient-warm">Caillieret</em>
+          Simon{" "}
+          <em className="text-gradient-warm inline-block pr-[0.1em]">
+            Caillieret
+          </em>
         </motion.h1>
 
         <motion.p
