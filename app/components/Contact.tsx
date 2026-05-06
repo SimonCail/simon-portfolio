@@ -36,20 +36,21 @@ function EmailCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="liquid-glass group flex items-center gap-4 p-5 rounded-2xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-glow/15 transition-all duration-300"
+      className="liquid-glass group flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-glow/15 transition-all duration-300 w-full max-w-full overflow-hidden"
     >
-      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
         <Mail className="w-5 h-5 text-white" />
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 overflow-hidden">
         <p className="text-default font-medium">{t.contact.labels.email}</p>
         <p className="text-xs text-subtle font-mono truncate">{EMAIL}</p>
       </div>
+      {/* Copy button hidden on mobile — tap on card opens mailto anyway */}
       <button
         onClick={copyEmail}
         aria-label={t.contact.copy.action}
         title={t.contact.copy.action}
-        className="shrink-0 p-2 rounded-lg bg-black/5 dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-muted hover:text-amber-glow hover:border-amber-glow/40 transition"
+        className="hidden sm:inline-flex shrink-0 p-2 rounded-lg bg-black/5 dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-muted hover:text-amber-glow hover:border-amber-glow/40 transition"
       >
         {copied ? (
           <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -144,18 +145,18 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.05 * (i + 1) }}
-                className="liquid-glass group flex items-center gap-4 p-5 rounded-2xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-glow/15 transition-all duration-300"
+                className="liquid-glass group flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-glow/15 transition-all duration-300 w-full max-w-full overflow-hidden"
               >
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${l.accent} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                  className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${l.accent} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                 >
                   <Icon className="w-5 h-5 text-white" />
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 overflow-hidden">
                   <p className="text-default font-medium">{l.label}</p>
                   <p className="text-xs text-subtle font-mono truncate">{l.sub}</p>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-subtle group-hover:text-amber-glow group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
+                <ArrowUpRight className="w-4 h-4 text-subtle group-hover:text-amber-glow group-hover:translate-x-1 group-hover:-translate-y-1 transition shrink-0" />
               </motion.a>
             );
           })}
