@@ -129,10 +129,7 @@ export default function KeyFacts() {
         variants={fadeUp}
         className="text-center mb-12"
       >
-        <p className="font-mono text-xs uppercase tracking-widest text-subtle">
-          {t.keyfacts.eyebrow}
-        </p>
-        <h2 className="font-serif-display text-4xl md:text-5xl text-default mt-3">
+        <h2 className="font-serif-display text-4xl md:text-5xl text-default">
           {t.keyfacts.title}
         </h2>
       </motion.div>

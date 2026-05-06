@@ -66,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif-display text-[10vw] sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-default leading-[0.95] max-w-5xl break-words"
+          className="font-serif-display text-[10vw] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-default leading-[0.95] max-w-full px-2 break-words"
         >
           Simon <em className="text-gradient-warm">Caillieret</em>
         </motion.h1>
@@ -140,22 +140,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.6 }}
-        style={{ opacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-subtle text-[10px] font-mono uppercase tracking-widest"
-        >
-          <span>{t.hero.scroll}</span>
-          <ArrowDown className="w-3 h-3" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
