@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Code2, Github } from "lucide-react";
 import {
@@ -63,8 +64,27 @@ const fadeUp = {
 
 export default function KeyFacts() {
   const { t } = useI18n();
-  const innerRadius = 70;
-  const outerRadius = 130;
+  const [innerRadius, setInnerRadius] = useState(70);
+  const [outerRadius, setOuterRadius] = useState(130);
+
+  useEffect(() => {
+    const onResize = () => {
+      const w = window.innerWidth;
+      if (w < 400) {
+        setInnerRadius(55);
+        setOuterRadius(105);
+      } else if (w < 640) {
+        setInnerRadius(62);
+        setOuterRadius(115);
+      } else {
+        setInnerRadius(70);
+        setOuterRadius(130);
+      }
+    };
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   const facts = [
     {
@@ -187,7 +207,7 @@ export default function KeyFacts() {
           </div>
         </div>
 
-        <div className="relative h-[340px] sm:h-[380px] flex items-center justify-center text-default">
+        <div className="relative h-[300px] sm:h-[380px] flex items-center justify-center text-default overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl liquid-glass-strong flex items-center justify-center font-serif-display text-2xl sm:text-3xl text-default">
               SC<span className="text-amber-glow">.</span>
