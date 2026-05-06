@@ -6,38 +6,18 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadGoogleFont(family: string, weights: number[], text?: string) {
-  const familyParam = family.replace(/ /g, "+");
-  const url = `https://fonts.googleapis.com/css2?family=${familyParam}:wght@${weights.join(
-    ";"
-  )}${text ? `&text=${encodeURIComponent(text)}` : ""}`;
-  const css = await (
-    await fetch(url, {
-      headers: {
-        // Use a modern UA so Google returns woff2 → ImageResponse needs ttf,
-        // but Google's css2 with no UA gives a TTF source URL.
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-      }
-    })
-  ).text();
-
-  // Pull every font-face block (one per weight)
-  const blocks = css.split("@font-face").slice(1);
-  return Promise.all(
-    blocks.map(async (block, i) => {
-      const match = block.match(/src: url\((https:[^)]+)\)/);
-      if (!match) return null;
-      const data = await (await fetch(match[1])).arrayBuffer();
-      return { data, weight: weights[i] ?? weights[0] };
-    })
-  ).then((results) => results.filter((r): r is { data: ArrayBuffer; weight: number } => r !== null));
-}
-
 export default async function OpengraphImage() {
-  const [interFonts, serifFonts] = await Promise.all([
-    loadGoogleFont("Inter", [400, 600, 700]),
-    loadGoogleFont("Instrument Serif", [400])
+  // Fonts are bundled locally as TTF (Satori doesn't support woff2).
+  const [inter400, inter600, serif400] = await Promise.all([
+    fetch(new URL("./_fonts/inter-400.ttf", import.meta.url)).then((r) =>
+      r.arrayBuffer()
+    ),
+    fetch(new URL("./_fonts/inter-600.ttf", import.meta.url)).then((r) =>
+      r.arrayBuffer()
+    ),
+    fetch(new URL("./_fonts/instrument-serif-400.ttf", import.meta.url)).then(
+      (r) => r.arrayBuffer()
+    )
   ]);
 
   return new ImageResponse(
@@ -62,7 +42,7 @@ export default async function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: 14,
-            padding: "10px 22px",
+            padding: "12px 24px",
             border: "1px solid rgba(255,255,255,0.1)",
             background: "rgba(255,255,255,0.04)",
             borderRadius: 999,
@@ -81,8 +61,7 @@ export default async function OpengraphImage() {
             style={{
               fontSize: 22,
               color: "#d6d3d1",
-              fontWeight: 500,
-              letterSpacing: 0.5
+              fontWeight: 500
             }}
           >
             Disponible · Alternance Sept 2026
@@ -169,18 +148,14 @@ export default async function OpengraphImage() {
     {
       ...size,
       fonts: [
-        ...interFonts.map((f) => ({
-          name: "Inter",
-          data: f.data,
-          weight: f.weight as 400 | 600 | 700,
-          style: "normal" as const
-        })),
-        ...serifFonts.map((f) => ({
+        { name: "Inter", data: inter400, weight: 400, style: "normal" },
+        { name: "Inter", data: inter600, weight: 600, style: "normal" },
+        {
           name: "Instrument Serif",
-          data: f.data,
-          weight: f.weight as 400,
-          style: "normal" as const
-        }))
+          data: serif400,
+          weight: 400,
+          style: "normal"
+        }
       ]
     }
   );
