@@ -497,29 +497,13 @@ export default function Projects() {
           <p className="text-muted max-w-xl mx-auto mt-5 px-2">
             {t.projects.description}
           </p>
-          <p className="hidden sm:block text-xs text-subtle mt-3 font-mono italic">
+          <p className="text-xs text-subtle mt-3 font-mono italic">
             {t.projects.hint}
           </p>
         </motion.div>
       </div>
 
-      {/* Mobile: vertical stack — natural thumb scroll, no drag needed */}
-      <div className="sm:hidden px-4 grid gap-5">
-        {projects.map((p, i) => (
-          <motion.div
-            key={p.number}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: (i % 3) * 0.05 }}
-          >
-            <ProjectCard project={p} variant="stack" />
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Desktop: infinite horizontal carousel */}
-      <div className="hidden sm:block relative">
+      <div className="relative">
         <div
           className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 z-10 pointer-events-none"
           style={{ background: "linear-gradient(to right, var(--bg), transparent)" }}
