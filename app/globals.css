@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ============================================ THEME TOKENS */
+:root,
+.dark {
+  color-scheme: dark;
+  --bg: #08080a;
+  --bg-soft: #101013;
+  --surface: 20 20 23;            /* rgb */
+  --surface-strong: 28 28 31;
+  --text: #f5f5f4;
+  --text-muted: #a8a29e;
+  --text-subtle: #78716c;
+  --border: 255 255 255;          /* rgb (use with /alpha) */
+  --border-opacity: 0.08;
+  --halo-warm: rgba(251, 146, 60, 0.25);
+  --halo-cool: rgba(244, 114, 182, 0.18);
+  --shadow-color: 0 0 0;
+}
+
+.light {
+  color-scheme: light;
+  --bg: #fafaf9;
+  --bg-soft: #f5f5f4;
+  --surface: 255 255 255;
+  --surface-strong: 250 250 249;
+  --text: #1c1c1f;
+  --text-muted: #57534e;
+  --text-subtle: #78716c;
+  --border: 0 0 0;
+  --border-opacity: 0.08;
+  --halo-warm: rgba(251, 146, 60, 0.18);
+  --halo-cool: rgba(244, 114, 182, 0.12);
+  --shadow-color: 23 23 23;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #2a2a2e;
+  border-radius: 6px;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fb923c;
+}
+
+::selection {
+  background: rgba(251, 146, 60, 0.35);
+  color: var(--text);
+}
+
+@layer utilities {
+  /* ============================================ TYPOGRAPHY */
+  .font-serif-display {
+    font-family: 'Instrument Serif', 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  .text-default { color: var(--text); }
+  .text-muted { color: var(--text-muted); }
+  .text-subtle { color: var(--text-subtle); }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, #fb923c 0%, #f472b6 60%, #a855f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ============================================ LIQUID GLASS */
+  .liquid-glass {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--surface) / 0.55) 0%,
+      rgb(var(--surface) / 0.35) 100%
+    );
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgb(var(--border) / 0.1);
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.06),
+      inset 0 0 0 1px rgb(255 255 255 / 0.02),
+      0 8px 32px -8px rgb(var(--shadow-color) / 0.5);
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .light .liquid-glass {
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.7) 0%,
+      rgb(255 255 255 / 0.45) 100%
+    );
+    border-color: rgb(0 0 0 / 0.06);
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.8),
+      0 8px 32px -8px rgb(0 0 0 / 0.08);
+  }
+
+  .liquid-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgb(255 255 255 / 0.05) 45%,
+      rgb(255 255 255 / 0.1) 50%,
+      rgb(255 255 255 / 0.05) 55%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .liquid-glass:hover::after {
+    opacity: 1;
+  }
+
+  .liquid-glass-strong {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--surface) / 0.85) 0%,
+      rgb(var(--surface) / 0.65) 100%
+    );
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid rgb(var(--border) / 0.12);
+  }
+
+  .light .liquid-glass-strong {
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.85) 0%,
+      rgb(255 255 255 / 0.65) 100%
+    );
+    border-color: rgb(0 0 0 / 0.08);
+  }
+
+  /* ============================================ SURFACES (solid fallback) */
+  .surface {
+    background: rgb(var(--surface) / 1);
+    border: 1px solid rgb(var(--border) / var(--border-opacity));
+  }
+
+  .light .surface {
+    background: #ffffff;
+  }
+
+  /* ============================================ DOT GRID */
+  .dot-grid {
+    background-image: radial-gradient(rgb(var(--border) / 0.18) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ============================================ BORDERS */
+  .border-soft {
+    border-color: rgb(var(--border) / var(--border-opacity));
+  }
+
+  /* ============================================ MISC */
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
+  .glow-amber-hover:hover {
+    box-shadow: 0 8px 40px -8px rgb(251 146 60 / 0.4);
+  }
+
+  /* Hide scrollbar for carousel */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Project marquee — infinite seamless loop. Track holds 2x cards;
+     translating -50% lands the second copy exactly where the first was. */
+  @keyframes project-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .project-marquee {
+    animation: project-scroll 35s linear infinite;
+  }
+  .project-marquee:hover,
+  .project-marquee:focus-within {
+    animation-play-state: paused;
+  }
+
+  /* ============================================ SHINE BORDER */
+  .shine-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .shine-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(
+      120deg,
+      transparent 25%,
+      rgba(251, 146, 60, 0.7) 45%,
+      rgba(244, 114, 182, 0.7) 55%,
+      transparent 75%
+    );
+    background-size: 250% 250%;
+    animation: shine 4s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes shine {
+    0% { background-position: 250% 0%; }
+    100% { background-position: -250% 0%; }
+  }
+
+  /* ============================================ ORBIT */
+  @keyframes orbit {
+    0% {
+      transform:
+        rotate(0deg)
+        translateY(calc(var(--radius) * 1px))
+        rotate(0deg);
+    }
+    100% {
+      transform:
+        rotate(-360deg)
+        translateY(calc(var(--radius) * 1px))
+        rotate(360deg);
+    }
+  }
+  .animate-orbit {
+    animation: orbit calc(var(--duration) * 1s) linear infinite;
+  }
+
+  /* ============================================ MARQUEE (logos) */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0); }
+  }
+  .marquee {
+    animation: marquee linear infinite;
+  }
+  .marquee-reverse {
+    animation: marquee-reverse linear infinite;
+  }
+
+  /* ============================================ SKELETON SHIMMER */
+  @keyframes skeleton {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .animate-skeleton {
+    animation: skeleton 1.6s ease-in-out infinite;
+  }
+
+  /* ============================================ CARD HOVER SPOTLIGHT */
+  .card-spotlight {
+    position: relative;
+  }
+  .card-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      400px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(251, 146, 60, 0.12),
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  .card-spotlight:hover::after {
+    opacity: 1;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Smooth theme transitions */
+.theme-transition * {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease !important;
+}
