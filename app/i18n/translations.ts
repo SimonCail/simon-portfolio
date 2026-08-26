@@ -9,16 +9,15 @@ export const translations = {
       contact: "Contact"
     },
     hero: {
-      available: "Disponible · Alternance Sept 2026",
       hello: "Bonjour, je suis",
       desc: {
         p1: "Étudiant en ",
-        b1: "3ème année de BUT Informatique",
-        p2: " à l'IUT de Lens, actuellement stagiaire chez ",
-        b2: "Pulp Immobilier",
-        p3: ". À la recherche d'une ",
-        accent: "alternance Master",
-        p4: " en développement pour septembre 2026."
+        b1: "Mastère Expert DevOps",
+        p2: " à l'",
+        b2: "EPSI de Lille",
+        p3: ". Je recherche une ",
+        accent: "alternance",
+        p4: " dès septembre 2026."
       },
       ctaProjects: "Voir mes projets",
       ctaCV: "Télécharger mon CV",
@@ -29,31 +28,32 @@ export const translations = {
     },
     keyfacts: {
       eyebrow: "Petit tour",
-      title: "Là où j'en suis aujourd'hui",
+      title: "En ce moment",
       stats: {
         s1: "années à l'IUT",
         s2: "stages dev en entreprise",
         s3: "projets au compteur"
       },
       facts: {
-        internshipLabel: "En stage",
+        internshipLabel: "Dernier stage",
         internshipTitle: "Pulp Immobilier",
-        internshipSub: "Migration CRM Laravel → Next.js · Mars-Août 2026",
+        internshipSub: "Espace client & espace document du CRM · Mars-Août 2026",
         educationLabel: "Formation",
-        educationTitle: "BUT Informatique",
-        educationSub: "IUT de Lens · 3ème année · Réalisation d'applications",
+        educationTitle: "Mastère Expert DevOps",
+        educationSub: "EPSI Lille · 2026-2028 · Alternance recherchée",
         codeLabel: "Code",
         codeTitle: "GitHub actif",
         codeSub: "Java · TypeScript · PHP · Python · React"
       },
       stackLabel: "Stack technique",
-      stackCount: "/ 16 outils & langages"
+      stackCount: "/ 19 outils & langages",
+      languages: "Français natif · Anglais B2"
     },
     parcours: {
       eyebrow: "Mon parcours",
-      title: "Cinq années en accéléré",
+      title: "De 2022 à aujourd'hui",
       description:
-        "Du Bac NSI à la recherche d'alternance — comment j'en suis arrivé là.",
+        "Du Bac NSI à la recherche d'alternance : comment j'en suis arrivé là.",
       events: [
         {
           year: "2022",
@@ -64,17 +64,17 @@ export const translations = {
         {
           year: "2023",
           milestones: [
-            { title: "Début du BUT Informatique", sub: "IUT de Lens — Réalisation d'applications" },
+            { title: "Début du BUT Informatique", sub: "IUT de Lens · Réalisation d'applications" },
             { title: "Stage Infographie", sub: "Premier contact avec le monde pro" },
-            { title: "Job étudiant — Agent de tri", sub: "" }
+            { title: "Job étudiant : agent de tri", sub: "" }
           ]
         },
         {
           year: "2024",
           milestones: [
-            { title: "Hackathon Marathon du Web", sub: "36h, équipe de 8 — site collaboratif PHP/MySQL" },
-            { title: "Projet Bomberman en Java", sub: "Équipe de 4 — POO, gestion d'événements, JavaFX" },
-            { title: "Job étudiant — Employé technique", sub: "" }
+            { title: "Hackathon Marathon du Web", sub: "36h en équipe de 8, site collaboratif PHP/MySQL" },
+            { title: "Projet Bomberman en Java", sub: "Équipe de 4 · POO, gestion d'événements, JavaFX" },
+            { title: "Job étudiant : employé technique", sub: "" }
           ]
         },
         {
@@ -88,10 +88,10 @@ export const translations = {
           year: "2026",
           current: true,
           milestones: [
-            { title: "Stage chez Pulp Immobilier (en cours)", sub: "Migration CRM Laravel → Next.js" },
+            { title: "Stage chez Pulp Immobilier", sub: "Espace client (ec-bob) & espace document (bobdocs)" },
             { title: "Projets perso fit-tracker, cahier-appel & heures-delegation", sub: "Trois PWA en React/Vite et Next.js" },
-            { title: "Diplôme BUT Informatique", sub: "Été 2026" },
-            { title: "Recherche d'alternance Master", sub: "Disponible à partir de septembre 2026" }
+            { title: "Diplôme BUT Informatique", sub: "Obtenu à l'IUT de Lens" },
+            { title: "Mastère Expert DevOps", sub: "EPSI Lille · 2026-2028" }
           ]
         }
       ]
@@ -101,25 +101,26 @@ export const translations = {
       title1: "Mes deux passages ",
       titleAccent: "en boîte",
       description:
-        "Migration d'un CRM Laravel vers Next.js chez l'un, app mobile Vue.js et sites WordPress chez l'autre. Du concret, en équipe, en production.",
+        "Espace client et espace document autour d'un CRM immobilier chez l'un, app mobile Vue.js et sites WordPress chez l'autre. Du concret, en équipe, en production.",
       pulp: {
         company: "Pulp Immobilier",
-        role: "Stagiaire Développement Web",
-        period: "Mars — Août 2026",
+        role: "Stagiaire Développement Full-Stack",
+        period: "Mars à août 2026",
         currentLabel: "En cours",
         description:
-          "Migration complète d'un CRM immobilier interne de Laravel vers Next.js. Refonte de l'architecture front, intégration TypeScript, mise en place de bonnes pratiques.",
+          "Deux applications greffées sur le CRM immobilier interne : ec-bob, l'espace client destiné aux propriétaires et acquéreurs, et bobdocs, l'espace document qui génère les actes de l'agence. Modernisation du front, TypeScript, mise en place de bonnes pratiques.",
         achievements: [
-          "Migration progressive du legacy Laravel vers Next.js",
-          "Architecture front-end maintenable et typée",
-          "Travail en équipe avec méthodologie agile",
-          "Code reviews et pair programming"
+          "ec-bob · espace client en SPA React 19 / TypeScript : tableau de bord, biens et carte Leaflet, affaires, recherches sauvegardées, documents et profil",
+          "ec-bob · PWA installable, authentification par token Sanctum, front découplé consommant l'API du CRM",
+          "bobdocs · espace document : génération PDF des mandats, avenants, compromis et baux depuis des modèles configurables",
+          "bobdocs · brouillons, historique des générations rejouable et SSO depuis le CRM via URL signée",
+          "Architecture front-end maintenable et typée, code reviews et pair programming"
         ]
       },
       grow: {
         company: "Grow Your Business",
         role: "Stagiaire Développement Web",
-        period: "Mai — Juin 2025",
+        period: "Mai à juin 2025",
         finishedLabel: "Terminé",
         description:
           "Développement d'une application mobile d'audits pour la société ERESE en Vue.js, et réalisation de sites vitrines clients sur WordPress.",
@@ -144,10 +145,9 @@ export const translations = {
     projects: {
       eyebrowSuffix: "projets",
       title1: "Ce que j'ai ",
-      titleAccent: "sorti",
+      titleAccent: "réalisé",
       description:
-        "Perso, académique, hackathon — un mélange de stacks et de contraintes différentes.",
-      hint: "Survolez pour mettre en pause · Glissez pour naviguer",
+        "Perso, académique, hackathon : un mélange de stacks et de contraintes différentes.",
       personalProject: "Projet personnel",
       teamProject: "Projet en équipe",
       hackathon: "Hackathon · 36h",
@@ -157,12 +157,11 @@ export const translations = {
       seeAll: "Voir tous mes projets sur GitHub"
     },
     contact: {
-      eyebrow: "On en parle ?",
       title1: "Vous cherchez un ",
       titleAccent: "alternant",
       title2: " ?",
       description:
-        "Alternance Master dev à partir de septembre 2026. Une opportunité, une question sur mon profil, ou juste envie d'échanger — écrivez-moi, je réponds sous 48h.",
+        "Je recherche une alternance Bac+5 comme développeur Expert DevOps, dans le cadre de mon Mastère à l'EPSI de Lille. N'hésitez pas à me contacter par mail.",
       labels: {
         email: "Email",
         linkedin: "LinkedIn",
@@ -180,8 +179,7 @@ export const translations = {
     },
     footer: {
       copyright: (year: number) => `© ${year} Simon Caillieret`,
-      stack: "Next.js · Tailwind · Framer Motion",
-      location: "Souchez · France"
+      stack: "Next.js · Tailwind · Framer Motion"
     },
     notFound: {
       label: "Erreur 404",
@@ -201,16 +199,15 @@ export const translations = {
       contact: "Contact"
     },
     hero: {
-      available: "Available · Apprenticeship Sept 2026",
       hello: "Hi, I'm",
       desc: {
-        p1: "Third-year ",
-        b1: "Computer Science student",
-        p2: " at IUT Lens, currently interning at ",
-        b2: "Pulp Immobilier",
-        p3: ". Looking for a ",
-        accent: "Master's apprenticeship",
-        p4: " in development starting September 2026."
+        p1: "Studying for a ",
+        b1: "DevOps Expert Master's",
+        p2: " at ",
+        b2: "EPSI Lille",
+        p3: ". I'm looking for an ",
+        accent: "apprenticeship",
+        p4: " starting September 2026."
       },
       ctaProjects: "View my projects",
       ctaCV: "Download my résumé",
@@ -221,31 +218,32 @@ export const translations = {
     },
     keyfacts: {
       eyebrow: "Quick tour",
-      title: "Where I'm at right now",
+      title: "Right now",
       stats: {
         s1: "years at IUT",
         s2: "dev internships",
         s3: "shipped projects"
       },
       facts: {
-        internshipLabel: "Interning",
+        internshipLabel: "Latest internship",
         internshipTitle: "Pulp Immobilier",
-        internshipSub: "Migrating a CRM from Laravel to Next.js · Mar–Aug 2026",
+        internshipSub: "CRM client portal & document workspace · Mar–Aug 2026",
         educationLabel: "Education",
-        educationTitle: "BUT Computer Science",
-        educationSub: "IUT Lens · 3rd year · Application development",
+        educationTitle: "DevOps Expert Master's",
+        educationSub: "EPSI Lille · 2026-2028 · Looking for an apprenticeship",
         codeLabel: "Code",
         codeTitle: "Active on GitHub",
         codeSub: "Java · TypeScript · PHP · Python · React"
       },
       stackLabel: "Tech stack",
-      stackCount: "/ 16 tools & languages"
+      stackCount: "/ 19 tools & languages",
+      languages: "French native · English B2"
     },
     parcours: {
       eyebrow: "My journey",
-      title: "Five years in fast-forward",
+      title: "From 2022 to today",
       description:
-        "From a CS-focused high-school diploma to apprenticeship hunting — how I got here.",
+        "From a CS-focused high-school diploma to apprenticeship hunting: how I got here.",
       events: [
         {
           year: "2022",
@@ -256,17 +254,17 @@ export const translations = {
         {
           year: "2023",
           milestones: [
-            { title: "Started BUT Computer Science", sub: "IUT Lens — Application development track" },
+            { title: "Started BUT Computer Science", sub: "IUT Lens · Application development track" },
             { title: "Graphic design internship", sub: "First taste of professional work" },
-            { title: "Student job — Sorting agent", sub: "" }
+            { title: "Student job: sorting agent", sub: "" }
           ]
         },
         {
           year: "2024",
           milestones: [
-            { title: "Marathon du Web hackathon", sub: "36h, team of 8 — collaborative PHP/MySQL site" },
-            { title: "Bomberman in Java", sub: "Team of 4 — OOP, event handling, JavaFX" },
-            { title: "Student job — Technical assistant", sub: "" }
+            { title: "Marathon du Web hackathon", sub: "36h with a team of 8, collaborative PHP/MySQL site" },
+            { title: "Bomberman in Java", sub: "Team of 4 · OOP, event handling, JavaFX" },
+            { title: "Student job: technical assistant", sub: "" }
           ]
         },
         {
@@ -280,10 +278,10 @@ export const translations = {
           year: "2026",
           current: true,
           milestones: [
-            { title: "Internship at Pulp Immobilier (ongoing)", sub: "Migrating a CRM from Laravel to Next.js" },
+            { title: "Internship at Pulp Immobilier", sub: "Client portal (ec-bob) & document workspace (bobdocs)" },
             { title: "Personal projects: fit-tracker, cahier-appel & heures-delegation", sub: "Three PWAs in React/Vite and Next.js" },
-            { title: "BUT degree", sub: "Summer 2026" },
-            { title: "Looking for a Master's apprenticeship", sub: "Available from September 2026" }
+            { title: "BUT degree", sub: "Graduated at IUT Lens" },
+            { title: "DevOps Expert Master's", sub: "EPSI Lille · 2026-2028" }
           ]
         }
       ]
@@ -293,25 +291,26 @@ export const translations = {
       title1: "Two stints in ",
       titleAccent: "the wild",
       description:
-        "Migrating a Laravel CRM to Next.js at one, building a Vue.js mobile app and WordPress sites at the other. Real code, real teams, real shipping.",
+        "A client portal and a document workspace around a real-estate CRM at one, a Vue.js mobile app and WordPress sites at the other. Real code, real teams, real shipping.",
       pulp: {
         company: "Pulp Immobilier",
-        role: "Web Development Intern",
-        period: "March — August 2026",
+        role: "Full-Stack Development Intern",
+        period: "March to August 2026",
         currentLabel: "Ongoing",
         description:
-          "Full migration of an internal real-estate CRM from Laravel to Next.js. Front-end architecture redesign, TypeScript integration, best-practices setup.",
+          "Two applications built on top of the in-house real-estate CRM: ec-bob, the client portal for owners and buyers, and bobdocs, the document workspace that generates the agency's paperwork. Front-end modernisation, TypeScript, best-practices setup.",
         achievements: [
-          "Progressive migration from legacy Laravel to Next.js",
-          "Maintainable, fully-typed front-end architecture",
-          "Team work using Agile methodology",
-          "Code reviews and pair programming"
+          "ec-bob · client portal as a React 19 / TypeScript SPA: dashboard, listings with a Leaflet map, deals, saved searches, documents and profile",
+          "ec-bob · installable PWA, Sanctum token authentication, decoupled front consuming the CRM API",
+          "bobdocs · document workspace: PDF generation of mandates, amendments, sale agreements and leases from configurable templates",
+          "bobdocs · drafts, replayable generation history and SSO from the CRM through signed URLs",
+          "Maintainable, fully-typed front-end architecture, code reviews and pair programming"
         ]
       },
       grow: {
         company: "Grow Your Business",
         role: "Web Development Intern",
-        period: "May — June 2025",
+        period: "May to June 2025",
         finishedLabel: "Finished",
         description:
           "Built a Vue.js mobile audit app for the ERESE company, and delivered showcase websites for clients on WordPress.",
@@ -336,10 +335,9 @@ export const translations = {
     projects: {
       eyebrowSuffix: "projects",
       title1: "What I've ",
-      titleAccent: "shipped",
+      titleAccent: "built",
       description:
-        "Personal, academic, hackathon — a mix of stacks and constraints.",
-      hint: "Hover to pause · Drag to navigate",
+        "Personal, academic, hackathon: a mix of stacks and constraints.",
       personalProject: "Personal project",
       teamProject: "Team project",
       hackathon: "Hackathon · 36h",
@@ -349,12 +347,11 @@ export const translations = {
       seeAll: "See all my projects on GitHub"
     },
     contact: {
-      eyebrow: "Shall we talk?",
       title1: "Looking for an ",
       titleAccent: "apprentice",
       title2: "?",
       description:
-        "Master's dev apprenticeship from September 2026. An opportunity, a question about my profile, or just want to chat — drop me a line, I reply within 48h.",
+        "I'm looking for an apprenticeship as a DevOps Expert developer, alongside my Master's at EPSI Lille. Feel free to reach out by email.",
       labels: {
         email: "Email",
         linkedin: "LinkedIn",
@@ -372,8 +369,7 @@ export const translations = {
     },
     footer: {
       copyright: (year: number) => `© ${year} Simon Caillieret`,
-      stack: "Next.js · Tailwind · Framer Motion",
-      location: "Souchez · France"
+      stack: "Next.js · Tailwind · Framer Motion"
     },
     notFound: {
       label: "Error 404",

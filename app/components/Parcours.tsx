@@ -57,7 +57,7 @@ export default function Parcours() {
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center ${
                     "current" in event && event.current
-                      ? "bg-amber-glow shadow-[0_0_24px_rgba(251,146,60,0.6)]"
+                      ? "bg-amber-glow shadow-[0_0_24px_rgb(var(--accent-rgb)/0.6)]"
                       : "liquid-glass-strong"
                   }`}
                 >
@@ -96,7 +96,7 @@ export default function Parcours() {
                       duration: 0.35,
                       delay: 0.15 + i * 0.06
                     }}
-                    className="liquid-glass rounded-xl px-4 py-3 hover:shadow-[0_4px_20px_-4px_rgba(251,146,60,0.2)] transition-shadow"
+                    className="liquid-glass rounded-xl px-4 py-3 hover:shadow-[0_4px_20px_-4px_rgb(var(--accent-rgb)/0.2)] transition-shadow"
                   >
                     <p className="text-default font-medium text-sm sm:text-base">
                       {m.title}

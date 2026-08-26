@@ -21,7 +21,8 @@ const config: Config = {
           950: "#08080a"
         },
         amber: {
-          glow: "#fb923c"
+          // <alpha-value> pour que amber-glow/15, /30, /95... continuent de marcher.
+          glow: "rgb(var(--accent-rgb) / <alpha-value>)"
         }
       },
       keyframes: {

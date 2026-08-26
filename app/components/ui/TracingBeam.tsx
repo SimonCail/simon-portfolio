@@ -66,8 +66,8 @@ export default function TracingBeam({
             transition={{ duration: 0.2, delay: 0.5 }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0 ? "#fb923c" : "transparent",
-              borderColor: scrollYProgress.get() > 0 ? "#fb923c" : "currentColor"
+                scrollYProgress.get() > 0 ? "rgb(var(--accent-rgb))" : "transparent",
+              borderColor: scrollYProgress.get() > 0 ? "rgb(var(--accent-rgb))" : "currentColor"
             }}
             className="h-2 w-2 rounded-full border border-current bg-current"
           />
@@ -104,10 +104,10 @@ export default function TracingBeam({
               y1={y1}
               y2={y2}
             >
-              <stop stopColor="#fb923c" stopOpacity="0" />
-              <stop stopColor="#fb923c" />
-              <stop offset="0.325" stopColor="#f472b6" />
-              <stop offset="1" stopColor="#a855f7" stopOpacity="0" />
+              <stop stopColor="rgb(var(--accent-rgb))" stopOpacity="0" />
+              <stop stopColor="rgb(var(--accent-rgb))" />
+              <stop offset="0.325" stopColor="rgb(var(--accent-soft-rgb))" />
+              <stop offset="1" stopColor="rgb(var(--accent-soft-rgb))" stopOpacity="0" />
             </motion.linearGradient>
           </defs>
         </svg>

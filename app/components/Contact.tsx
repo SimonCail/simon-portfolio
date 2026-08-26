@@ -102,10 +102,7 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12 sm:mb-14"
       >
-        <p className="font-mono text-xs uppercase tracking-widest text-amber-glow">
-          {t.contact.eyebrow}
-        </p>
-        <h2 className="font-serif-display text-4xl sm:text-5xl md:text-7xl text-default mt-4 tracking-tight">
+        <h2 className="font-serif-display text-4xl sm:text-5xl md:text-7xl text-default tracking-tight">
           {t.contact.title1}
           <em className="text-gradient-warm">{t.contact.titleAccent}</em>
           {t.contact.title2}

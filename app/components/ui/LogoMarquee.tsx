@@ -16,16 +16,16 @@ export default function LogoMarquee({
 }) {
   const animation = reverse ? "marquee-reverse" : "marquee";
   return (
-    <div className="relative flex w-full overflow-hidden">
+    <div className="marquee-viewport relative flex w-full overflow-hidden">
       <div
-        className={`flex shrink-0 items-center gap-10 sm:gap-14 ${animation}`}
+        className={`marquee-track ${animation}`}
         style={{ animationDuration: `${speed}s` }}
       >
         {children}
       </div>
       <div
         aria-hidden
-        className={`flex shrink-0 items-center gap-10 sm:gap-14 ${animation}`}
+        className={`marquee-track ${animation}`}
         style={{ animationDuration: `${speed}s` }}
       >
         {children}

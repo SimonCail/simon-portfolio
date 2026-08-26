@@ -8,10 +8,12 @@ import { motion } from "framer-motion";
  */
 export default function Lamp({
   className = "",
-  color = "rgba(251, 146, 60, 0.55)"
+  color = "var(--lamp-cone)",
+  barColor = "var(--lamp-bar)"
 }: {
   className?: string;
   color?: string;
+  barColor?: string;
 }) {
   return (
     <div
@@ -36,9 +38,7 @@ export default function Lamp({
         transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px]"
         style={{
-          background: `linear-gradient(to right, transparent, ${color
-            .replace("0.55", "1")
-            .replace("0.35", "1")}, transparent)`,
+          background: `linear-gradient(to right, transparent, ${barColor}, transparent)`,
           boxShadow: `0 0 20px ${color}, 0 0 40px ${color}, 0 0 80px ${color}`
         }}
       />

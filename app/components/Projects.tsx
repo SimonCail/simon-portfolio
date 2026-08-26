@@ -497,9 +497,6 @@ export default function Projects() {
           <p className="text-muted max-w-xl mx-auto mt-5 px-2">
             {t.projects.description}
           </p>
-          <p className="text-xs text-subtle mt-3 font-mono italic">
-            {t.projects.hint}
-          </p>
         </motion.div>
       </div>
 
@@ -539,7 +536,7 @@ export default function Projects() {
           href="https://github.com/SimonCail?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="liquid-glass group inline-flex items-center gap-3 px-5 py-3 rounded-full text-sm text-default hover:shadow-[0_8px_32px_-8px_rgba(251,146,60,0.4)] hover:-translate-y-0.5 transition-all duration-300"
+          className="liquid-glass group inline-flex items-center gap-3 px-5 py-3 rounded-full text-sm text-default hover:shadow-[0_8px_32px_-8px_rgb(var(--accent-rgb)/0.4)] hover:-translate-y-0.5 transition-all duration-300"
         >
           <Github className="w-4 h-4 text-amber-glow" />
           <span>{t.projects.seeAll}</span>

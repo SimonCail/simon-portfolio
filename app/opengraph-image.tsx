@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Simon Caillieret — Étudiant Développeur, alternance Sept 2026";
+  "Simon Caillieret · Développeur Expert DevOps, recherche alternance Bac+5";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default async function OpengraphImage() {
               fontWeight: 500
             }}
           >
-            Disponible · Alternance Sept 2026
+            Disponible · Recherche alternance DevOps
           </span>
         </div>
 
@@ -93,7 +93,7 @@ export default async function OpengraphImage() {
             <span
               style={{
                 background:
-                  "linear-gradient(135deg, #fed7aa 0%, #fb923c 50%, #f472b6 100%)",
+                  "linear-gradient(135deg, #fed7aa 0%, #fbbf24 50%, #fb923c 100%)",
                 backgroundClip: "text",
                 color: "transparent",
                 fontStyle: "italic"
@@ -110,7 +110,7 @@ export default async function OpengraphImage() {
               fontWeight: 400
             }}
           >
-            Étudiant en BUT Informatique · Recherche d&apos;alternance dev
+            Développeur Expert DevOps · Alternance Bac+5 · Lille · Lens
           </span>
         </div>
 
@@ -129,7 +129,7 @@ export default async function OpengraphImage() {
               fontWeight: 500
             }}
           >
-            simoncaillieret.vercel.app · Souchez · France
+            simoncaillieret.vercel.app · Lille · Lens
           </span>
           <div
             style={{

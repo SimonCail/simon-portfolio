@@ -57,7 +57,7 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="group inline-flex items-center gap-2 px-6 py-3 mt-10 rounded-full font-medium text-sm overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.5)]"
+            className="group inline-flex items-center gap-2 px-6 py-3 mt-10 rounded-full font-medium text-sm overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_30px_rgb(var(--accent-rgb)/0.5)]"
             style={{ background: "var(--text)", color: "var(--bg)" }}
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

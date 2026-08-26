@@ -17,30 +17,35 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://simoncaillieret.vercel.app"
   ),
-  title: "Simon Caillieret — Étudiant Développeur",
+  title: "Simon Caillieret · Développeur Expert DevOps",
   description:
-    "Étudiant en 3ème année de BUT Informatique à l'IUT de Lens, actuellement en stage chez Pulp Immobilier. Recherche d'une alternance Master en développement pour septembre 2026.",
+    "Étudiant en Mastère Expert DevOps à l'EPSI de Lille (2026-2028), diplômé du BUT Informatique de l'IUT de Lens. À la recherche d'une alternance Bac+5 à Lille ou Lens.",
   keywords: [
     "Simon Caillieret",
     "portfolio",
-    "alternance 2026",
-    "développeur",
+    "alternance DevOps",
+    "alternance Bac+5",
+    "développeur Expert DevOps",
+    "Mastère Expert DevOps",
+    "EPSI Lille",
     "BUT Informatique",
-    "IUT Lens"
+    "IUT Lens",
+    "Lille",
+    "Lens"
   ],
   authors: [{ name: "Simon Caillieret" }],
   openGraph: {
-    title: "Simon Caillieret — Portfolio",
+    title: "Simon Caillieret · Portfolio",
     description:
-      "Étudiant en BUT Informatique, en stage chez Pulp Immobilier. Recherche d'une alternance Master dev pour septembre 2026.",
+      "Mastère Expert DevOps à l'EPSI de Lille. Recherche d'une alternance Bac+5 comme développeur Expert DevOps.",
     type: "website",
     locale: "fr_FR",
     siteName: "Simon Caillieret"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Simon Caillieret — Portfolio",
-    description: "Étudiant développeur, alternance Sept 2026."
+    title: "Simon Caillieret · Portfolio",
+    description: "Mastère Expert DevOps à l'EPSI de Lille, en recherche d'alternance Bac+5."
   }
 };
 

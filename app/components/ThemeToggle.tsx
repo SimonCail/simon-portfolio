@@ -13,7 +13,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       onClick={toggle}
       aria-label={isDark ? "Passer en mode clair" : "Passer en mode sombre"}
       title={isDark ? "Mode clair" : "Mode sombre"}
-      className={`relative p-1.5 rounded-full text-muted hover:text-default hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-black/5 transition ${className}`}
+      className={`relative p-1.5 rounded-full text-muted hover:text-default hover:bg-black/5 dark:hover:bg-white/5 transition ${className}`}
     >
       <AnimatePresence mode="wait" initial={false}>
         {isDark ? (

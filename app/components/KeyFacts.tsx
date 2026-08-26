@@ -2,23 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Code2, Github } from "lucide-react";
+import { Briefcase, GraduationCap, Code2, Github, Languages } from "lucide-react";
 import {
   SiTypescript,
   SiReact,
   SiNextdotjs,
   SiVuedotjs,
-  SiNodedotjs,
-  SiNestjs,
-  SiSpring,
   SiOpenjdk,
   SiPhp,
   SiPython,
-  SiTailwindcss,
   SiMongodb,
   SiNeo4J,
+  SiMysql,
+  SiHtml5,
+  SiCss,
   SiDocker,
   SiGit,
+  SiGithub,
+  SiGitlab,
+  SiGithubactions,
+  SiLinux,
   SiJavascript
 } from "react-icons/si";
 import NumberTicker from "./NumberTicker";
@@ -26,31 +29,36 @@ import OrbitingCircles from "./ui/OrbitingCircles";
 import LogoMarquee from "./ui/LogoMarquee";
 import { useI18n } from "./I18nProvider";
 
+// Les trois listes reprennent les rubriques du CV : backend, frontend,
+// outils & environnements. Rien de plus, rien de moins.
 const innerStack = [
   { Icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
   { Icon: SiReact, name: "React", color: "#61DAFB" },
-  { Icon: SiNextdotjs, name: "Next.js", color: "#ffffff" },
+  { Icon: SiNextdotjs, name: "Next.js", color: "var(--text)" },
   { Icon: SiOpenjdk, name: "Java", color: "#ED8B00" },
   { Icon: SiPython, name: "Python", color: "#3776AB" }
 ];
 
 const outerStack = [
   { Icon: SiVuedotjs, name: "Vue.js", color: "#4FC08D" },
-  { Icon: SiNodedotjs, name: "Node.js", color: "#5FA04E" },
-  { Icon: SiNestjs, name: "NestJS", color: "#E0234E" },
-  { Icon: SiSpring, name: "Spring", color: "#6DB33F" },
   { Icon: SiPhp, name: "PHP", color: "#777BB4" },
-  { Icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
   { Icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  { Icon: SiDocker, name: "Docker", color: "#2496ED" }
+  { Icon: SiMysql, name: "SQL", color: "#4479A1" },
+  { Icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { Icon: SiGithubactions, name: "CI/CD", color: "#2088FF" },
+  { Icon: SiGit, name: "Git", color: "#F05032" },
+  { Icon: SiLinux, name: "Linux", color: "#FCC624" }
 ];
 
 const marqueeStack = [
   ...innerStack,
   ...outerStack,
+  { Icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
   { Icon: SiNeo4J, name: "Neo4j", color: "#4581C3" },
-  { Icon: SiGit, name: "Git", color: "#F05032" },
-  { Icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" }
+  { Icon: SiHtml5, name: "HTML", color: "#E34F26" },
+  { Icon: SiCss, name: "CSS", color: "#663399" },
+  { Icon: SiGithub, name: "GitHub", color: "var(--text)" },
+  { Icon: SiGitlab, name: "GitLab", color: "#FC6D26" }
 ];
 
 const fadeUp = {
@@ -166,7 +174,7 @@ export default function KeyFacts() {
               custom={i + 1}
               variants={fadeUp}
               whileHover={{ y: -4 }}
-              className="liquid-glass group rounded-2xl p-6 hover:shadow-[0_8px_40px_-8px_rgba(251,146,60,0.3)] transition-all duration-300"
+              className="liquid-glass group rounded-2xl p-6 hover:shadow-[0_8px_40px_-8px_rgb(var(--accent-rgb)/0.3)] transition-all duration-300"
             >
               <div className="flex items-center gap-2 mb-4">
                 <Icon
@@ -202,6 +210,10 @@ export default function KeyFacts() {
               {t.keyfacts.stackCount}
             </span>
           </div>
+          <span className="liquid-glass inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-mono text-muted">
+            <Languages className="w-3 h-3 text-amber-glow" />
+            {t.keyfacts.languages}
+          </span>
         </div>
 
         <div className="relative h-[300px] sm:h-[380px] flex items-center justify-center text-default overflow-hidden">

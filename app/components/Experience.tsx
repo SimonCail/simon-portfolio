@@ -59,7 +59,7 @@ function ExperienceCard({
       custom={index + 1}
       variants={fadeUp}
       whileHover={{ y: -4 }}
-      className="liquid-glass group relative rounded-2xl p-7 sm:p-8 hover:shadow-[0_8px_40px_-8px_rgba(251,146,60,0.25)] transition-all duration-500 flex flex-col overflow-hidden z-10"
+      className="liquid-glass group relative rounded-2xl p-7 sm:p-8 hover:shadow-[0_8px_40px_-8px_rgb(var(--accent-rgb)/0.25)] transition-all duration-500 flex flex-col overflow-hidden z-10"
     >
       <div
         className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${accent} opacity-90`}
@@ -147,8 +147,7 @@ export default function Experience() {
     role: t.experience.pulp.role,
     period: t.experience.pulp.period,
     description: t.experience.pulp.description,
-    achievements: t.experience.pulp.achievements,
-    current: true
+    achievements: t.experience.pulp.achievements
   };
 
   const growStage: StageData = {

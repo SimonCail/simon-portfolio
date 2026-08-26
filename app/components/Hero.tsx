@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Download, Mail, Sparkles, MapPin } from "lucide-react";
+import { ArrowDown, Download, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 import Lamp from "./ui/Lamp";
@@ -37,42 +37,45 @@ export default function Hero() {
       <Lamp />
 
       <motion.div style={{ opacity, scale, y }} className="contents">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          custom={0}
-          variants={fadeUp}
-          className="liquid-glass inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs text-muted mb-8"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-          </span>
-          <span className="font-mono">{t.hero.available}</span>
-        </motion.div>
-
         <motion.p
           initial="hidden"
           animate="show"
           custom={1}
           variants={fadeUp}
-          className="text-subtle text-sm font-mono mb-4 inline-flex items-center gap-2"
+          className="text-subtle mb-5 inline-flex items-center gap-3"
         >
-          <Sparkles className="w-3.5 h-3.5 text-amber-glow" />
-          {t.hero.hello}
+          <span
+            aria-hidden
+            className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-current opacity-50"
+          />
+          <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.28em]">
+            {t.hero.hello}
+          </span>
+          <span
+            aria-hidden
+            className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-current opacity-50"
+          />
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif-display text-[clamp(2.25rem,8vw,6rem)] tracking-tight text-default leading-[0.95] max-w-full px-6 sm:px-12 break-words"
-        >
-          Simon{" "}
-          <em className="text-gradient-warm inline-block pr-[0.1em]">
-            Caillieret
-          </em>
-        </motion.h1>
+        {/* Halo chaud derrière le nom : le dégradé du prénom paraît éclairé
+            plutôt que posé à plat. Purement décoratif, hors flux. */}
+        <div className="relative max-w-full">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[190%] rounded-full blur-3xl opacity-70 bg-[radial-gradient(ellipse_at_center,rgb(var(--accent-soft-rgb)/0.16)_0%,rgb(var(--accent-rgb)/0.10)_40%,transparent_72%)]"
+          />
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative font-serif-display text-[clamp(2.25rem,8vw,6rem)] tracking-tight text-default leading-[0.95] max-w-full px-6 sm:px-12 break-words"
+          >
+            Simon{" "}
+            <em className="text-gradient-warm inline-block pr-[0.1em]">
+              Caillieret
+            </em>
+          </motion.h1>
+        </div>
 
         <motion.p
           initial="hidden"
@@ -99,7 +102,7 @@ export default function Hero() {
         >
           <Link
             href="#projets"
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.5)]"
+            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_30px_rgb(var(--accent-rgb)/0.5)]"
             style={{ background: "var(--text)", color: "var(--bg)" }}
           >
             <span className="relative z-10 inline-flex items-center gap-2">
@@ -134,7 +137,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-1.5">
             <MapPin className="w-3 h-3 text-amber-glow" />
-            Souchez · Hauts-de-France
+            Lille · Lens
           </span>
           <span className="opacity-30">·</span>
           <span>{t.hero.age}</span>
