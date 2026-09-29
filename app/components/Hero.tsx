@@ -112,7 +112,7 @@ export default function Hero() {
             <span className="absolute inset-0 bg-amber-glow translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
           </Link>
           <a
-            href="/cv.pdf"
+            href="/cv Simon Caillieret - ALTERNANCE (2).pdf"
             download
             className="liquid-glass group inline-flex items-center gap-2 px-6 py-3 rounded-full text-default font-medium text-sm transition"
           >

@@ -262,7 +262,7 @@ export default function Experience() {
             className="text-center mt-10"
           >
             <a
-              href="/cv.pdf"
+              href="/cv Simon Caillieret - ALTERNANCE (2).pdf"
               download
               className="inline-flex items-center gap-2 text-sm text-muted hover:text-amber-glow transition group"
             >

@@ -84,7 +84,7 @@ export default function Contact() {
     {
       label: t.contact.labels.cv,
       sub: t.contact.labels.cvSub,
-      href: "/cv.pdf",
+      href: "/cv Simon Caillieret - ALTERNANCE (2).pdf",
       icon: Download,
       accent: "from-rose-500 to-pink-600"
     }
